@@ -1,0 +1,30 @@
+<!-- DOCTYPE HTML -->
+<!-- 이벤트 위임 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+  </head>
+  <body>
+    <ul id="listParent">
+      <li><strong>빨강색</strong></li>
+      <li><strong>노랑색</strong></li>
+      <li><strong>파랑색</strong></li>
+    </ul>
+    <script>
+      function changeColor(target) {
+        target.style.color = "pink";
+      }
+      let targetElement = document.getElementById("listParent");
+      targetElement.addEventListener("click", function (event) {
+        let element = event.target.closest("li");
+        console.log(element.tagName);
+        if (!element) {
+          return;
+        } else {
+          changeColor(element);
+        }
+      });
+    </script>
+  </body>
+</html>
